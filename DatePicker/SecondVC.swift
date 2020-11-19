@@ -19,7 +19,15 @@ class SecondVC: UIViewController {
 
         self.configDatePicker()
         self.dateTextField.textAlignment = .center
-        // Do any additional setup after loading the view.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc private func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     private func configDatePicker() {
